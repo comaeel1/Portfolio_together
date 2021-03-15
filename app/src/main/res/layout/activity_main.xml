@@ -4,21 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".Activity.LoginActivity">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:id="@+id/tv_id"
+        android:layout_width="182dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="388dp"
+        android:hint="ID를 입력하세요"
+        android:textSize="15sp"
+        android:gravity="center|left"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="114dp" />
 
-    <Button
-        android:text="안녕하세요!"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
+    <EditText
+        android:id="@+id/tv_pwd"
+        android:layout_width="182dp"
+        android:layout_height="38dp"
+        android:ems="10"
+        android:hint="비밀번호를 입력하세요"
+        android:textSize="15sp"
+        android:gravity="center|left"
+        android:inputType="textPassword"
+        tools:layout_editor_absoluteX="114dp"
+        tools:layout_editor_absoluteY="439dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
