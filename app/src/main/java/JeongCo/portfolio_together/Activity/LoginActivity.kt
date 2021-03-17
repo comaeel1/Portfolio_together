@@ -3,6 +3,7 @@ package JeongCo.portfolio_together.Activity
 import JeongCo.portfolio_together.Retrofit.INodeJS
 import JeongCo.portfolio_together.Retrofit.RetrofitClient
 import JeongCo.portfolio_together.databinding.ActivityLoginBinding
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -25,7 +26,14 @@ class LoginActivity : AppCompatActivity() {
         myAPI = retrofit.create(INodeJS::class.java)
 
         binding.loginBtn.setOnClickListener {
-            attemptLogin()
+            attemptLogin() //로그인에 시도할때 실행
+        }
+
+        binding.registerBtn.setOnClickListener {
+            //회원가입 뷰로 넘겨준다
+            val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 
