@@ -19,52 +19,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.227" />
-
-    <EditText
-        android:id="@+id/tv_reg_pwd"
-        android:layout_width="250dp"
-        android:layout_height="40dp"
-        android:ems="10"
-        android:gravity="center|left"
-        android:hint="비밀번호"
-        android:inputType="textPersonName"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reg_certificate_btn"
-        app:layout_constraintVertical_bias="0.079" />
-
-    <Button
-        android:id="@+id/reg_register_btn"
-        android:layout_width="251dp"
-        android:layout_height="50dp"
-        android:text="가입하기"
-        android:textSize="15sp"
-        app:backgroundTint="#6A8ACC"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_reg_phone"
-        app:layout_constraintVertical_bias="0.162" />
-
-    <Button
-        android:id="@+id/reg_certificate_btn"
-        android:layout_width="251dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="24dp"
-        android:text="인증하기"
-        android:textSize="15sp"
-        app:backgroundTint="#98CA5E"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.506"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_reg_email"
-        app:layout_constraintVertical_bias="0.008" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.08" />
 
     <EditText
         android:id="@+id/tv_reg_name"
@@ -80,7 +36,7 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_reg_pwd_check"
-        app:layout_constraintVertical_bias="0.067" />
+        app:layout_constraintVertical_bias="0.109" />
 
     <EditText
         android:id="@+id/tv_reg_phone"
@@ -96,7 +52,7 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_reg_name"
-        app:layout_constraintVertical_bias="0.089" />
+        app:layout_constraintVertical_bias="0.136" />
 
     <EditText
         android:id="@+id/tv_reg_pwd_check"
@@ -112,6 +68,47 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_reg_pwd"
-        app:layout_constraintVertical_bias="0.058" />
+        app:layout_constraintVertical_bias="0.081" />
+
+    <EditText
+        android:id="@+id/tv_reg_pwd"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:gravity="center|left"
+        android:hint="비밀번호"
+        android:inputType="textPersonName"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_reg_email"
+        app:layout_constraintVertical_bias="0.065" />
+
+    <Button
+        android:id="@+id/reg_register_btn"
+        android:layout_width="251dp"
+        android:layout_height="50dp"
+        android:text="가입하기"
+        android:textSize="15sp"
+        app:backgroundTint="#6A8ACC"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_reg_phone"
+        app:layout_constraintVertical_bias="0.258" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="150dp"
+        android:layout_height="144dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.136"
+        app:srcCompat="@drawable/register" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

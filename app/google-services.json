@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "164032828432",
+    "project_id": "portfoliotogether-f6259",
+    "storage_bucket": "portfoliotogether-f6259.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:164032828432:android:57d765299e967e826ca695",
+        "android_client_info": {
+          "package_name": "JeongCo.portfolio_together"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "164032828432-1tn8suvldktet5uqpehno6mhlk5kgfhv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1QYGIvI0obwiB-_NIhlPHDClRGGts1GA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "164032828432-1tn8suvldktet5uqpehno6mhlk5kgfhv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

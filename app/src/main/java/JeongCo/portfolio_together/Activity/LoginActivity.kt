@@ -7,6 +7,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.firebase.auth.FirebaseAuth
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -15,11 +18,14 @@ import io.reactivex.schedulers.Schedulers
 class LoginActivity : AppCompatActivity() {
     val binding by lazy {ActivityLoginBinding.inflate(layoutInflater)}
     lateinit var myAPI: INodeJS
-    var compositeDisposable = CompositeDisposable()
-    override fun onCreate(savedInstanceState: Bundle?) {
+    lateinit var auth : FirebaseAuth
 
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
+        auth = FirebaseAuth.getInstance()
+
 
         //API 초기화
         val retrofit = RetrofitClient.instance
@@ -33,7 +39,6 @@ class LoginActivity : AppCompatActivity() {
             //회원가입 뷰로 넘겨준다
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
-            finish()
         }
     }
 
@@ -64,27 +69,28 @@ class LoginActivity : AppCompatActivity() {
 
     }
 
-    fun StartLogin(userEmail: String, userPwd: String){
-            compositeDisposable.add(myAPI.loginUser(userEmail, userPwd)
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe { message ->
-                        if (message.contains("userPwd"))
-                            Toast.makeText(this@LoginActivity, "로그인에 성공했습니다.", Toast.LENGTH_SHORT).show()
-                        else
-                            Toast.makeText(this@LoginActivity, message, Toast.LENGTH_SHORT).show()
-                    })
+    private fun StartLogin(email: String, password: String){
+        //파이어베이스 로그인 시도
+        auth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this){
+                    if(it.isSuccessful){
+                        if(auth.currentUser!!.isEmailVerified) {
+                            Toast.makeText(this@LoginActivity, "로그인에 성공했습니다!", Toast.LENGTH_SHORT).show()
+
+                            //메인 액티비티로 넘겨줌
+                            val intent = Intent(this, MainActivity::class.java)
+                            startActivity(intent)
+                            finish()
+                        }else{
+                            Toast.makeText(this@LoginActivity, "이메일 인증을 해주세요!", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                    else{
+                        Toast.makeText(this@LoginActivity, "비밀번호가 틀렸거나, 이메일 인증이 되지 않은 계정입니다", Toast.LENGTH_SHORT).show()
+                    }
+                }
     }
     fun isUseridValid(UserEmail: String): Boolean = UserEmail.contains('@')
     fun isUserPwdValid(userPwd: String): Boolean = userPwd.length >= 6
 
-    override fun onStop() {
-        compositeDisposable.clear()
-        super.onStop()
-    }
-
-    override fun onDestroy(){
-        compositeDisposable.clear()
-        super.onDestroy()
-    }
 }
